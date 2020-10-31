@@ -13,6 +13,8 @@ dependencies {
 
     androidMainImplementation(Deps.Libs.Android.lifecycle)
 
+    // 8. Add dependency in a feature
+    commonMainImplementation(Deps.Libs.MultiPlatform.mokoResources.common)
     commonMainImplementation(Deps.Libs.MultiPlatform.mokoMvvm.common)
     commonMainImplementation(Deps.Libs.MultiPlatform.mokoFields.common)
 }

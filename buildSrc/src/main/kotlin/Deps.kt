@@ -24,6 +24,8 @@ object Deps {
 
     private const val detektVersion = "1.12.0"
 
+    // 1. Add moko-resources version
+    private const val mokoResourcesVersion = "0.13.1"
     private const val mokoGraphicsVersion = "0.4.0"
     private const val mokoParcelizeVersion = "0.4.0"
     private const val mokoMvvmVersion = "0.8.0"
@@ -61,6 +63,11 @@ object Deps {
         val mobileMultiplatform = GradlePlugin(id = "dev.icerock.mobile.multiplatform")
         val iosFramework = GradlePlugin(id = "dev.icerock.mobile.multiplatform.ios-framework")
 
+        // 2. Add plugin definition
+        val mokoResources = GradlePlugin(
+            id = "dev.icerock.mobile.multiplatform-resources",
+            module = "dev.icerock.moko:resources-generator:$mokoResourcesVersion"
+        )
         val mokoNetwork = GradlePlugin(
             id = "dev.icerock.mobile.multiplatform-network-generator",
             module = "dev.icerock.moko:network-generator:$mokoNetworkVersion"
@@ -124,6 +131,9 @@ object Deps {
                 "io.ktor:ktor-client-core:$ktorClientVersion"
             const val ktorClientLogging =
                 "io.ktor:ktor-client-logging:$ktorClientVersion"
+            // 3. Add MPP dependency definition
+            val mokoResources =
+                "dev.icerock.moko:resources:$mokoResourcesVersion".mpl
             val mokoParcelize =
                 "dev.icerock.moko:parcelize:$mokoParcelizeVersion".mpl
             val mokoGraphics =

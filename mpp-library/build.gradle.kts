@@ -6,12 +6,16 @@ plugins {
     plugin(Deps.Plugins.androidLibrary)
     plugin(Deps.Plugins.kotlinMultiplatform)
     plugin(Deps.Plugins.mobileMultiplatform)
+    // 5. Apply plugin
+    plugin(Deps.Plugins.mokoResources)
     plugin(Deps.Plugins.iosFramework)
 }
 
 val mppLibs = listOf(
     Deps.Libs.MultiPlatform.multiplatformSettings,
     Deps.Libs.MultiPlatform.napier,
+    // 6. Add dependency
+    Deps.Libs.MultiPlatform.mokoResources,
     Deps.Libs.MultiPlatform.mokoParcelize,
     Deps.Libs.MultiPlatform.mokoMvvm,
     Deps.Libs.MultiPlatform.mokoUnits,
@@ -33,6 +37,13 @@ dependencies {
 
     mppLibs.forEach { commonMainApi(it.common) }
     mppModules.forEach { commonMainApi(project(it.name)) }
+}
+
+// 7. Configure plugin
+multiplatformResources {
+    multiplatformResourcesPackage = "org.example.library"
+    iosBaseLocalizationRegion = "en" // default, may be omitted
+    multiplatformResourcesSourceSet = "commonMain" // default, may be omitted
 }
 
 framework {

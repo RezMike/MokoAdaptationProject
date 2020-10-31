@@ -15,6 +15,8 @@ dependencies {
     androidMainImplementation(Deps.Libs.Android.lifecycle)
     androidMainImplementation(Deps.Libs.Android.recyclerView)
 
+    // 9. Add dependency in another feature
+    commonMainImplementation(Deps.Libs.MultiPlatform.mokoResources.common)
     commonMainImplementation(Deps.Libs.MultiPlatform.mokoMvvm.common)
     commonMainImplementation(Deps.Libs.MultiPlatform.mokoUnits.common)
 

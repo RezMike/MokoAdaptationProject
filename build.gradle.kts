@@ -17,6 +17,8 @@ buildscript {
         maven { url = uri("https://dl.bintray.com/icerockdev/plugins") }
     }
     dependencies {
+        // 4. Add plugin classpath
+        plugin(Deps.Plugins.mokoResources)
         plugin(Deps.Plugins.mokoNetwork)
         plugin(Deps.Plugins.mokoUnits)
         plugin(Deps.Plugins.kotlinSerialization)

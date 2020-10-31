@@ -1,0 +1,69 @@
+{
+  "project_info": {
+    "project_number": "668191609378",
+    "firebase_url": "https://mokoadaptationproject.firebaseio.com",
+    "project_id": "mokoadaptationproject",
+    "storage_bucket": "mokoadaptationproject.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:668191609378:android:e9389304a69e7e26abb07b",
+        "android_client_info": {
+          "package_name": "com.rezmike.moko.adaptation"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "668191609378-hhcjlcm5ogfpk8sal8v1ch1jgg4a6nrn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAdLm2gHw53tB1D24WgDiKrq7sTRZ3VVpU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "668191609378-hhcjlcm5ogfpk8sal8v1ch1jgg4a6nrn.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:668191609378:android:10940f43cc750b8babb07b",
+        "android_client_info": {
+          "package_name": "com.rezmike.moko.adaptation.debug"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "668191609378-hhcjlcm5ogfpk8sal8v1ch1jgg4a6nrn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAdLm2gHw53tB1D24WgDiKrq7sTRZ3VVpU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "668191609378-hhcjlcm5ogfpk8sal8v1ch1jgg4a6nrn.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

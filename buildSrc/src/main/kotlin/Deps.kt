@@ -39,6 +39,11 @@ object Deps {
     private const val multiplatformSettingsVersion = "0.6.1"
     private const val napierVersion = "1.4.1"
 
+    private const val googleServicesVersion = "4.3.4"
+    private const val firebaseCrashlyticsPluginVersion = "2.3.0"
+    private const val firebaseAnalyticsVersion = "18.0.0"
+    private const val firebaseCrashlyticsVersion = "17.2.2"
+
     object Android {
         const val compileSdk = 29
         const val targetSdk = 29
@@ -59,6 +64,15 @@ object Deps {
             id = "org.jetbrains.kotlin.plugin.serialization",
             module = "org.jetbrains.kotlin:kotlin-serialization:$kotlinVersion"
         )
+        val googleServices = GradlePlugin(
+            id = "com.google.gms.google-services",
+            module = "com.google.gms:google-services:$googleServicesVersion"
+        )
+        val firebaseCrashlytics = GradlePlugin(
+            id = "com.google.firebase.crashlytics",
+            module = "com.google.firebase:firebase-crashlytics-gradle:$firebaseCrashlyticsPluginVersion"
+        )
+
 
         val mobileMultiplatform = GradlePlugin(id = "dev.icerock.mobile.multiplatform")
         val iosFramework = GradlePlugin(id = "dev.icerock.mobile.multiplatform.ios-framework")
@@ -101,6 +115,10 @@ object Deps {
                 "androidx.lifecycle:lifecycle-extensions:$lifecycleVersion"
             val ktorClientOkHttp =
                 "io.ktor:ktor-client-okhttp:$ktorClientVersion"
+            const val firebaseAnalytics =
+                "com.google.firebase:firebase-analytics:$firebaseAnalyticsVersion"
+            const val firebaseCrashlytics =
+                "com.google.firebase:firebase-crashlytics:$firebaseCrashlyticsVersion"
 
             object Tests {
                 const val espressoCore =

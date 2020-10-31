@@ -7,6 +7,8 @@ plugins {
     plugin(Deps.Plugins.kotlinAndroid)
     plugin(Deps.Plugins.kotlinKapt)
     plugin(Deps.Plugins.mokoUnits)
+    plugin(Deps.Plugins.googleServices)
+    plugin(Deps.Plugins.firebaseCrashlytics)
 }
 
 android {
@@ -22,7 +24,7 @@ android {
         minSdkVersion(Deps.Android.minSdk)
         targetSdkVersion(Deps.Android.targetSdk)
 
-        applicationId = "org.example.app"
+        applicationId = "com.rezmike.moko.adaptation"
 
         versionCode = 1
         versionName = "0.1.0"
@@ -54,6 +56,8 @@ dependencies {
     implementation(Deps.Libs.Android.material)
     implementation(Deps.Libs.Android.recyclerView)
     implementation(Deps.Libs.Android.swipeRefreshLayout)
+    implementation(Deps.Libs.Android.firebaseAnalytics)
+    implementation(Deps.Libs.Android.firebaseCrashlytics)
 
     implementation(project(":mpp-library"))
 }

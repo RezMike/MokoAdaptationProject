@@ -16,7 +16,6 @@ dependencies {
     androidMainImplementation(Deps.Libs.Android.recyclerView)
 
     commonMainImplementation(Deps.Libs.MultiPlatform.mokoMvvm.common)
-    commonMainImplementation(Deps.Libs.MultiPlatform.mokoResources.common)
     commonMainImplementation(Deps.Libs.MultiPlatform.mokoUnits.common)
 
     commonMainImplementation(Deps.Libs.MultiPlatform.napier.common)

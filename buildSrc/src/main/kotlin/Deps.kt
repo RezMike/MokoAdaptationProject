@@ -129,8 +129,6 @@ object Deps {
                 "io.ktor:ktor-client-core:$ktorClientVersion"
             const val ktorClientLogging =
                 "io.ktor:ktor-client-logging:$ktorClientVersion"
-            val mokoResources =
-                "dev.icerock.moko:resources:$mokoResourcesVersion".mpl
             val mokoParcelize =
                 "dev.icerock.moko:parcelize:$mokoParcelizeVersion".mpl
             val mokoGraphics =

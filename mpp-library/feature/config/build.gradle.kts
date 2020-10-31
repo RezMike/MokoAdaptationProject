@@ -14,6 +14,5 @@ dependencies {
     androidMainImplementation(Deps.Libs.Android.lifecycle)
 
     commonMainImplementation(Deps.Libs.MultiPlatform.mokoMvvm.common)
-    commonMainImplementation(Deps.Libs.MultiPlatform.mokoResources.common)
     commonMainImplementation(Deps.Libs.MultiPlatform.mokoFields.common)
 }

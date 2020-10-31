@@ -24,7 +24,8 @@ val mppLibs = listOf(
 val mppModules = listOf(
     Deps.Modules.domain,
     Deps.Modules.Feature.config,
-    Deps.Modules.Feature.list
+    Deps.Modules.Feature.list,
+    Deps.Modules.Feature.sample
 )
 
 dependencies {

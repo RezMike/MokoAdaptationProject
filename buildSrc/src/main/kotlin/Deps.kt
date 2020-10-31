@@ -206,6 +206,10 @@ object Deps {
                 name = ":mpp-library:feature:list",
                 exported = true
             )
+            val sample = MultiPlatformModule(
+                name = ":mpp-library:feature:sample",
+                exported = true
+            )
         }
     }
 

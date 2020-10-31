@@ -26,7 +26,6 @@ object Deps {
 
     private const val mokoGraphicsVersion = "0.4.0"
     private const val mokoParcelizeVersion = "0.4.0"
-    private const val mokoResourcesVersion = "0.13.1"
     private const val mokoMvvmVersion = "0.8.0"
     private const val mokoErrorsVersion = "0.3.0"
     private const val mokoNetworkVersion = "0.8.0"
@@ -65,10 +64,6 @@ object Deps {
         val mokoNetwork = GradlePlugin(
             id = "dev.icerock.mobile.multiplatform-network-generator",
             module = "dev.icerock.moko:network-generator:$mokoNetworkVersion"
-        )
-        val mokoResources = GradlePlugin(
-            id = "dev.icerock.mobile.multiplatform-resources",
-            module = "dev.icerock.moko:resources-generator:$mokoResourcesVersion"
         )
         val mokoUnits = GradlePlugin(
             id = "dev.icerock.mobile.multiplatform-units",

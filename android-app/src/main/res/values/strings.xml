@@ -6,4 +6,6 @@
     <string name="token_hint">API token</string>
     <string name="language_hint">Language code</string>
     <string name="retry_btn">Retry</string>
+    <string name="number_hint">Number</string>
+    <string name="show_btn">Show</string>
 </resources>

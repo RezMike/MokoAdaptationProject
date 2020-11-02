@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+    <string name="first_title">How many text blocks to show</string>
+    <string name="second_title">There are %s text blocks shown</string>
+</resources>

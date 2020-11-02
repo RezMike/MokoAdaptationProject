@@ -1,5 +1,6 @@
 package org.example.app.view
 
+import android.os.Bundle
 import androidx.lifecycle.ViewModelProvider
 import dev.icerock.moko.mvvm.MvvmEventsActivity
 import dev.icerock.moko.mvvm.createViewModelFactory
@@ -22,5 +23,25 @@ class SampleActivity :
         AppComponent.factory.sampleFactory.createSampleViewModel(
             eventsDispatcher = eventsDispatcherOnMain()
         )
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        if (savedInstanceState == null) {
+            supportFragmentManager.beginTransaction()
+                .add(R.id.container, FirstSampleFragment(), FIRST_SAMPLE_FRAGMENT_TAG)
+                .commit()
+        }
+    }
+
+    override fun showTextFields() {
+        supportFragmentManager.beginTransaction()
+            .add(R.id.container, SecondSampleFragment(), SECOND_SAMPLE_FRAGMENT_TAG)
+            .commit()
+    }
+
+    companion object {
+        private const val FIRST_SAMPLE_FRAGMENT_TAG = "FIRST_SAMPLE_FRAGMENT_TAG"
+        private const val SECOND_SAMPLE_FRAGMENT_TAG = "SECOND_SAMPLE_FRAGMENT_TAG"
     }
 }

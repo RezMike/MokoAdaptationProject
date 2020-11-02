@@ -21,7 +21,6 @@ import org.example.library.feature.list.di.ListFactory
 import org.example.library.feature.list.model.ListSource
 import org.example.library.feature.list.presentation.ListViewModel
 import org.example.library.feature.sample.di.SampleFactory
-import org.example.library.feature.sample.di.Strings
 
 class SharedFactory(
     settings: Settings,
@@ -34,10 +33,7 @@ class SharedFactory(
         baseUrl = baseUrl
     )
 
-    val sampleFactory: SampleFactory = SampleFactory(
-        strings = object : Strings {
-        }
-    )
+    val sampleFactory: SampleFactory = SampleFactory()
 
     val newsFactory: ListFactory<News> = ListFactory(
         listSource = object : ListSource<News> {

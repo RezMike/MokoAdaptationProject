@@ -43,11 +43,12 @@ object Deps {
     private const val firebaseCrashlyticsPluginVersion = "2.3.0"
     private const val firebaseAnalyticsVersion = "18.0.0"
     private const val firebaseCrashlyticsVersion = "17.2.2"
+    private const val multidexVersion = "2.0.1"
 
     object Android {
         const val compileSdk = 29
         const val targetSdk = 29
-        const val minSdk = 16
+        const val minSdk = 21
     }
 
     object Plugins {
@@ -119,6 +120,8 @@ object Deps {
                 "com.google.firebase:firebase-analytics:$firebaseAnalyticsVersion"
             const val firebaseCrashlytics =
                 "com.google.firebase:firebase-crashlytics:$firebaseCrashlyticsVersion"
+            const val multidex =
+                "androidx.multidex:multidex:$multidexVersion"
 
             object Tests {
                 const val espressoCore =

@@ -5,4 +5,5 @@ import dev.icerock.moko.resources.StringResource
 interface Strings {
     val firstTitle: StringResource
     val secondTitle: StringResource
+    val textBlockText: StringResource
 }

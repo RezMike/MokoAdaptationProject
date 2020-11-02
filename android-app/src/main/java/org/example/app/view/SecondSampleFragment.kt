@@ -8,6 +8,7 @@ import org.example.app.AppComponent
 import org.example.app.BR
 import org.example.app.R
 import org.example.app.databinding.FragmentFirstSampleBinding
+import org.example.app.units.SampleUnitFactoryImpl
 import org.example.library.feature.sample.presentation.SampleViewModel
 
 class SecondSampleFragment : MvvmFragment<FragmentFirstSampleBinding, SampleViewModel>() {
@@ -20,7 +21,8 @@ class SecondSampleFragment : MvvmFragment<FragmentFirstSampleBinding, SampleView
 
     override fun viewModelFactory(): ViewModelProvider.Factory = createViewModelFactory {
         AppComponent.factory.sampleFactory.createSampleViewModel(
-            eventsDispatcher = eventsDispatcherOnMain()
+            eventsDispatcher = eventsDispatcherOnMain(),
+            unitFactory = SampleUnitFactoryImpl()
         )
     }
 }

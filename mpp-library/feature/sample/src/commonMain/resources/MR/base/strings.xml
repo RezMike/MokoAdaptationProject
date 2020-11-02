@@ -2,4 +2,5 @@
 <resources>
     <string name="first_title">How many text blocks to show</string>
     <string name="second_title">There are %s text blocks shown</string>
+    <string name="text_block_text">Text block #%s</string>
 </resources>

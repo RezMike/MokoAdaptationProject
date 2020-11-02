@@ -9,6 +9,7 @@ import org.example.app.AppComponent
 import org.example.app.BR
 import org.example.app.R
 import org.example.app.databinding.ActivitySampleBinding
+import org.example.app.units.SampleUnitFactoryImpl
 import org.example.library.feature.sample.presentation.SampleViewModel
 
 class SampleActivity :
@@ -21,7 +22,8 @@ class SampleActivity :
 
     override fun viewModelFactory(): ViewModelProvider.Factory = createViewModelFactory {
         AppComponent.factory.sampleFactory.createSampleViewModel(
-            eventsDispatcher = eventsDispatcherOnMain()
+            eventsDispatcher = eventsDispatcherOnMain(),
+            unitFactory = SampleUnitFactoryImpl()
         )
     }
 
@@ -36,7 +38,7 @@ class SampleActivity :
 
     override fun showTextFields() {
         supportFragmentManager.beginTransaction()
-            .add(R.id.container, SecondSampleFragment(), SECOND_SAMPLE_FRAGMENT_TAG)
+            .replace(R.id.container, SecondSampleFragment(), SECOND_SAMPLE_FRAGMENT_TAG)
             .commit()
     }
 

@@ -2,6 +2,7 @@ package org.example.app.units
 
 import dev.icerock.moko.resources.desc.StringDesc
 import dev.icerock.moko.units.TableUnitItem
+import org.example.app.ItemLoading
 import org.example.app.ItemTextBlock
 import org.example.app.ItemTitle
 import org.example.library.feature.sample.di.SampleUnitFactory
@@ -19,6 +20,12 @@ class SampleUnitFactoryImpl : SampleUnitFactory {
         return ItemTextBlock().apply {
             itemId = text.hashCode().toLong()
             this.text = text
+        }
+    }
+
+    override fun createLoadingItem(): TableUnitItem {
+        return ItemLoading().apply {
+            itemId = -1
         }
     }
 }

@@ -32,6 +32,7 @@ object Deps {
     private const val mokoErrorsVersion = "0.3.0"
     private const val mokoNetworkVersion = "0.8.0"
     private const val mokoUnitsVersion = "0.4.1"
+    private const val mokoPagingVersion = "0.4.0"
     private const val mokoPermissionsVersion = "0.6.0"
     private const val mokoMediaVersion = "0.5.0"
     private const val mokoFieldsVersion = "0.5.0"
@@ -173,6 +174,8 @@ object Deps {
                 "dev.icerock.moko:media:$mokoMediaVersion".mpl
             val mokoUnits =
                 "dev.icerock.moko:units:$mokoUnitsVersion".mpl
+            val mokoPaging =
+                "dev.icerock.moko:paging:$mokoPagingVersion".mpl
             val mokoFields =
                 "dev.icerock.moko:fields:$mokoFieldsVersion".mpl
             val multiplatformSettings =

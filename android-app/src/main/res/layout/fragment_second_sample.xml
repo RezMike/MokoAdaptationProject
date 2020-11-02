@@ -10,12 +10,18 @@
             type="org.example.library.feature.sample.presentation.SampleViewModel" />
     </data>
 
-    <androidx.recyclerview.widget.RecyclerView
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swipe_refresh"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:nestedScrollingEnabled="false"
-        app:adapter="@{`dev.icerock.moko.units.adapter.UnitsRecyclerViewAdapter`}"
-        app:bindValue="@{viewModel.units.ld}"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+        android:layout_height="match_parent">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/items_rv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:adapter="@{`dev.icerock.moko.units.adapter.UnitsRecyclerViewAdapter`}"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
 </layout>

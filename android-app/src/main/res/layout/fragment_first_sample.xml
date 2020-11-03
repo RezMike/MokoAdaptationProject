@@ -47,5 +47,12 @@
             android:onClick="@{() -> viewModel.onShowClick()}"
             android:text="@string/show_btn" />
 
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:onClick="@{() -> viewModel.onPermissionRequestClick()}"
+            android:text="@string/permission_btn" />
+
     </LinearLayout>
 </layout>

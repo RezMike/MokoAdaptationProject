@@ -8,4 +8,5 @@
     <string name="retry_btn">Retry</string>
     <string name="number_hint">Number</string>
     <string name="show_btn">Show</string>
+    <string name="permission_btn">Request permission</string>
 </resources>

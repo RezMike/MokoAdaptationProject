@@ -8,17 +8,23 @@ import dev.icerock.moko.mvvm.livedata.*
 import dev.icerock.moko.mvvm.viewmodel.ViewModel
 import dev.icerock.moko.paging.LambdaPagedListDataSource
 import dev.icerock.moko.paging.Pagination
+import dev.icerock.moko.permissions.DeniedAlwaysException
+import dev.icerock.moko.permissions.DeniedException
+import dev.icerock.moko.permissions.Permission
+import dev.icerock.moko.permissions.PermissionsController
 import dev.icerock.moko.resources.desc.Composition
 import dev.icerock.moko.resources.desc.StringDesc
 import dev.icerock.moko.resources.desc.desc
 import dev.icerock.moko.resources.format
 import dev.icerock.moko.units.TableUnitItem
 import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 import org.example.library.feature.sample.di.SampleUnitFactory
 import org.example.library.feature.sample.di.Strings
 
 class SampleViewModel(
     override val eventsDispatcher: EventsDispatcher<EventsListener>,
+    val permissionsController: PermissionsController,
     private val unitFactory: SampleUnitFactory,
     private val strings: Strings
 ) : ViewModel(),
@@ -127,6 +133,22 @@ class SampleViewModel(
     fun onShowClick() {
         eventsDispatcher.dispatchEvent {
             showTextFields()
+        }
+    }
+
+    fun onPermissionRequestClick() {
+        if (permissionsController.isPermissionGranted(Permission.GALLERY)) {
+            return
+        }
+        viewModelScope.launch {
+            try {
+                permissionsController.providePermission(Permission.GALLERY)
+                println("Permission has been granted successfully!")
+            } catch (deniedAlways: DeniedAlwaysException) {
+                println("Permission is always denied.")
+            } catch (denied: DeniedException) {
+                println("Permission was denied.")
+            }
         }
     }
 

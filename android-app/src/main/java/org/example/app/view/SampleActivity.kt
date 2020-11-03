@@ -5,6 +5,7 @@ import androidx.lifecycle.ViewModelProvider
 import dev.icerock.moko.mvvm.MvvmEventsActivity
 import dev.icerock.moko.mvvm.createViewModelFactory
 import dev.icerock.moko.mvvm.dispatcher.eventsDispatcherOnMain
+import dev.icerock.moko.permissions.PermissionsController
 import org.example.app.AppComponent
 import org.example.app.BR
 import org.example.app.R
@@ -23,6 +24,7 @@ class SampleActivity :
     override fun viewModelFactory(): ViewModelProvider.Factory = createViewModelFactory {
         AppComponent.factory.sampleFactory.createSampleViewModel(
             eventsDispatcher = eventsDispatcherOnMain(),
+            permissionsController = PermissionsController(applicationContext = applicationContext),
             unitFactory = SampleUnitFactoryImpl()
         )
     }

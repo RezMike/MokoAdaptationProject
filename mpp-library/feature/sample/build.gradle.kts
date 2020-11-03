@@ -15,6 +15,7 @@ dependencies {
     commonMainImplementation(Deps.Libs.MultiPlatform.mokoUnits.common)
     commonMainImplementation(Deps.Libs.MultiPlatform.mokoFields.common)
     commonMainImplementation(Deps.Libs.MultiPlatform.mokoPaging.common)
+    commonMainImplementation(Deps.Libs.MultiPlatform.mokoPermissions.common)
 }
 
 multiplatformResources {

@@ -58,6 +58,7 @@ dependencies {
     implementation(Deps.Libs.Android.swipeRefreshLayout)
     implementation(Deps.Libs.Android.firebaseAnalytics)
     implementation(Deps.Libs.Android.firebaseCrashlytics)
+    implementation(Deps.Libs.MultiPlatform.mokoPermissions.common)
 
     implementation(project(":mpp-library"))
 }

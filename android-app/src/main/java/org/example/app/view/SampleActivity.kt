@@ -2,6 +2,7 @@ package org.example.app.view
 
 import android.os.Bundle
 import androidx.lifecycle.ViewModelProvider
+import dev.icerock.moko.media.picker.MediaPickerController
 import dev.icerock.moko.mvvm.MvvmEventsActivity
 import dev.icerock.moko.mvvm.createViewModelFactory
 import dev.icerock.moko.mvvm.dispatcher.eventsDispatcherOnMain
@@ -22,9 +23,11 @@ class SampleActivity :
     override val viewModelVariableId: Int = BR.viewModel
 
     override fun viewModelFactory(): ViewModelProvider.Factory = createViewModelFactory {
+        val permissionsController = PermissionsController(applicationContext = applicationContext)
         AppComponent.factory.sampleFactory.createSampleViewModel(
             eventsDispatcher = eventsDispatcherOnMain(),
-            permissionsController = PermissionsController(applicationContext = applicationContext),
+            permissionsController = permissionsController,
+            mediaPickerController = MediaPickerController(permissionsController),
             unitFactory = SampleUnitFactoryImpl()
         )
     }

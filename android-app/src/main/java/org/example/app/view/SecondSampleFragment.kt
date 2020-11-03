@@ -5,6 +5,7 @@ import android.view.View
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import dev.icerock.moko.media.picker.MediaPickerController
 import dev.icerock.moko.mvvm.MvvmFragment
 import dev.icerock.moko.mvvm.createViewModelFactory
 import dev.icerock.moko.mvvm.dispatcher.eventsDispatcherOnMain
@@ -27,11 +28,13 @@ class SecondSampleFragment : MvvmFragment<FragmentSecondSampleBinding, SampleVie
     override fun viewModelStoreOwner() = requireActivity()
 
     override fun viewModelFactory(): ViewModelProvider.Factory = createViewModelFactory {
+        val permissionsController = PermissionsController(
+            applicationContext = requireContext().applicationContext
+        )
         AppComponent.factory.sampleFactory.createSampleViewModel(
             eventsDispatcher = eventsDispatcherOnMain(),
-            permissionsController = PermissionsController(
-                applicationContext = requireContext().applicationContext
-            ),
+            permissionsController = permissionsController,
+            mediaPickerController = MediaPickerController(permissionsController),
             unitFactory = SampleUnitFactoryImpl()
         )
     }

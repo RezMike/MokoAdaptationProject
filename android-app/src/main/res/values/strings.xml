@@ -9,4 +9,5 @@
     <string name="number_hint">Number</string>
     <string name="show_btn">Show</string>
     <string name="permission_btn">Request permission</string>
+    <string name="photo_btn">Select photo</string>
 </resources>

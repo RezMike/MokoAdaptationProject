@@ -1,6 +1,10 @@
 package org.example.library.feature.sample.presentation
 
 import dev.icerock.moko.fields.FormField
+import dev.icerock.moko.media.Bitmap
+import dev.icerock.moko.media.picker.CanceledException
+import dev.icerock.moko.media.picker.MediaPickerController
+import dev.icerock.moko.media.picker.MediaSource
 import dev.icerock.moko.mvvm.State
 import dev.icerock.moko.mvvm.dispatcher.EventsDispatcher
 import dev.icerock.moko.mvvm.dispatcher.EventsDispatcherOwner
@@ -25,6 +29,7 @@ import org.example.library.feature.sample.di.Strings
 class SampleViewModel(
     override val eventsDispatcher: EventsDispatcher<EventsListener>,
     val permissionsController: PermissionsController,
+    private val mediaController: MediaPickerController,
     private val unitFactory: SampleUnitFactory,
     private val strings: Strings
 ) : ViewModel(),
@@ -84,6 +89,9 @@ class SampleViewModel(
             map { it.toString() }
         }
 
+    private val _photo: MutableLiveData<Bitmap?> = MutableLiveData(null)
+    val photo = _photo.readOnly()
+    val isPhotoVisible = photo.map { it != null }
 
     init {
         numberField.validate()
@@ -148,6 +156,21 @@ class SampleViewModel(
                 println("Permission is always denied.")
             } catch (denied: DeniedException) {
                 println("Permission was denied.")
+            }
+        }
+    }
+
+    fun onSelectPhotoClick() {
+        viewModelScope.launch {
+            try {
+                val bitmap = mediaController.pickImage(MediaSource.CAMERA)
+                _photo.value = bitmap
+            } catch(_: CanceledException) {
+                // cancel capture
+                _photo.value = null
+            } catch(error: Throwable) {
+                // denied permission or file read error
+                _photo.value = null
             }
         }
     }

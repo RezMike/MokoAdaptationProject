@@ -37,6 +37,7 @@ allprojects {
         maven { url = uri("https://dl.bintray.com/icerockdev/moko") }
         maven { url = uri("https://kotlin.bintray.com/ktor") }
         maven { url = uri("https://dl.bintray.com/aakira/maven") }
+        maven { url = uri("https://dl.bintray.com/lukaville/maven") }
     }
 
     apply(plugin = Deps.Plugins.detekt.id)

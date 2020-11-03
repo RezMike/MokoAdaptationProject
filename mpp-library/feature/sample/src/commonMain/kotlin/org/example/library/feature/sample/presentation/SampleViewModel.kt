@@ -1,6 +1,8 @@
 package org.example.library.feature.sample.presentation
 
 import dev.icerock.moko.fields.FormField
+import dev.icerock.moko.geo.LatLng
+import dev.icerock.moko.geo.LocationTracker
 import dev.icerock.moko.media.Bitmap
 import dev.icerock.moko.media.picker.CanceledException
 import dev.icerock.moko.media.picker.MediaPickerController
@@ -21,14 +23,19 @@ import dev.icerock.moko.resources.desc.StringDesc
 import dev.icerock.moko.resources.desc.desc
 import dev.icerock.moko.resources.format
 import dev.icerock.moko.units.TableUnitItem
+import kotlinx.coroutines.InternalCoroutinesApi
 import kotlinx.coroutines.delay
+import kotlinx.coroutines.flow.FlowCollector
+import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.launch
 import org.example.library.feature.sample.di.SampleUnitFactory
 import org.example.library.feature.sample.di.Strings
 
+@OptIn(InternalCoroutinesApi::class)
 class SampleViewModel(
     override val eventsDispatcher: EventsDispatcher<EventsListener>,
     val permissionsController: PermissionsController,
+    val locationTracker: LocationTracker,
     private val mediaController: MediaPickerController,
     private val unitFactory: SampleUnitFactory,
     private val strings: Strings
@@ -92,6 +99,23 @@ class SampleViewModel(
     private val _photo: MutableLiveData<Bitmap?> = MutableLiveData(null)
     val photo = _photo.readOnly()
     val isPhotoVisible = photo.map { it != null }
+
+    private val _isTracking: MutableLiveData<Boolean> = MutableLiveData(false)
+    val isTracking: LiveData<Boolean> = _isTracking.readOnly()
+    private val _coordinates: MutableLiveData<LatLng?> = MutableLiveData(null)
+    val coordinates: LiveData<String> = _coordinates.readOnly().map { it.toString() }
+
+    init {
+        viewModelScope.launch {
+            locationTracker.getLocationsFlow()
+                .distinctUntilChanged()
+                .collect(object : FlowCollector<LatLng> {
+                    override suspend fun emit(value: LatLng) {
+                        _coordinates.value = value
+                    }
+                })
+        }
+    }
 
     init {
         numberField.validate()
@@ -160,15 +184,23 @@ class SampleViewModel(
         }
     }
 
+    fun onStartTrackingClick() {
+        viewModelScope.launch { locationTracker.startTracking() }
+    }
+
+    fun onStopTrackingClick() {
+        locationTracker.stopTracking()
+    }
+
     fun onSelectPhotoClick() {
         viewModelScope.launch {
             try {
                 val bitmap = mediaController.pickImage(MediaSource.CAMERA)
                 _photo.value = bitmap
-            } catch(_: CanceledException) {
+            } catch (_: CanceledException) {
                 // cancel capture
                 _photo.value = null
-            } catch(error: Throwable) {
+            } catch (error: Throwable) {
                 // denied permission or file read error
                 _photo.value = null
             }

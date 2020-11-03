@@ -60,6 +60,8 @@ dependencies {
     implementation(Deps.Libs.Android.firebaseCrashlytics)
     implementation(Deps.Libs.MultiPlatform.mokoPermissions.common)
     implementation(Deps.Libs.MultiPlatform.mokoMedia.common)
+    implementation(Deps.Libs.MultiPlatform.mokoGeo.common)
+    implementation(Deps.Libs.Android.googleServicesLocation)
 
     implementation(project(":mpp-library"))
 }

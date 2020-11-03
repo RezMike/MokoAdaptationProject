@@ -17,6 +17,8 @@ dependencies {
     commonMainImplementation(Deps.Libs.MultiPlatform.mokoPaging.common)
     commonMainImplementation(Deps.Libs.MultiPlatform.mokoPermissions.common)
     commonMainImplementation(Deps.Libs.MultiPlatform.mokoMedia.common)
+    commonMainImplementation(Deps.Libs.MultiPlatform.mokoGeo.common)
+    androidMainImplementation(Deps.Libs.Android.googleServicesLocation)
 }
 
 multiplatformResources {

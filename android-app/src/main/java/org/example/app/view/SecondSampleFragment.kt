@@ -5,6 +5,7 @@ import android.view.View
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import dev.icerock.moko.geo.LocationTracker
 import dev.icerock.moko.media.picker.MediaPickerController
 import dev.icerock.moko.mvvm.MvvmFragment
 import dev.icerock.moko.mvvm.createViewModelFactory
@@ -35,6 +36,7 @@ class SecondSampleFragment : MvvmFragment<FragmentSecondSampleBinding, SampleVie
             eventsDispatcher = eventsDispatcherOnMain(),
             permissionsController = permissionsController,
             mediaPickerController = MediaPickerController(permissionsController),
+            locationTracker = LocationTracker(permissionsController),
             unitFactory = SampleUnitFactoryImpl()
         )
     }

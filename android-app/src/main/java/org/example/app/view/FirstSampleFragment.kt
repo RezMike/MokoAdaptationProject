@@ -1,6 +1,7 @@
 package org.example.app.view
 
 import androidx.lifecycle.ViewModelProvider
+import dev.icerock.moko.geo.LocationTracker
 import dev.icerock.moko.media.picker.MediaPickerController
 import dev.icerock.moko.mvvm.MvvmFragment
 import dev.icerock.moko.mvvm.createViewModelFactory
@@ -29,6 +30,7 @@ class FirstSampleFragment : MvvmFragment<FragmentFirstSampleBinding, SampleViewM
             eventsDispatcher = eventsDispatcherOnMain(),
             permissionsController = permissionsController,
             mediaPickerController = MediaPickerController(permissionsController),
+            locationTracker = LocationTracker(permissionsController),
             unitFactory = SampleUnitFactoryImpl()
         )
     }

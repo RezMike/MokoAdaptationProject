@@ -10,4 +10,6 @@
     <string name="show_btn">Show</string>
     <string name="permission_btn">Request permission</string>
     <string name="photo_btn">Select photo</string>
+    <string name="start_btn">Start tracking</string>
+    <string name="stop_btn">Stop tracking</string>
 </resources>

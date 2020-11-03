@@ -68,5 +68,26 @@
             android:onClick="@{() -> viewModel.onSelectPhotoClick()}"
             android:text="@string/photo_btn" />
 
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@{viewModel.coordinates.ld}"
+            app:visibleOrGone="@{viewModel.isTracking.ld}" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:onClick="@{() -> viewModel.onStartTrackingClick()}"
+            android:text="@string/start_btn" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:onClick="@{() -> viewModel.onStopTrackingClick()}"
+            android:text="@string/stop_btn" />
+
     </LinearLayout>
 </layout>

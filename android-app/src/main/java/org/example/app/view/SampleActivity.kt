@@ -2,6 +2,7 @@ package org.example.app.view
 
 import android.os.Bundle
 import androidx.lifecycle.ViewModelProvider
+import dev.icerock.moko.geo.LocationTracker
 import dev.icerock.moko.media.picker.MediaPickerController
 import dev.icerock.moko.mvvm.MvvmEventsActivity
 import dev.icerock.moko.mvvm.createViewModelFactory
@@ -28,6 +29,7 @@ class SampleActivity :
             eventsDispatcher = eventsDispatcherOnMain(),
             permissionsController = permissionsController,
             mediaPickerController = MediaPickerController(permissionsController),
+            locationTracker = LocationTracker(permissionsController),
             unitFactory = SampleUnitFactoryImpl()
         )
     }
@@ -39,6 +41,8 @@ class SampleActivity :
                 .add(R.id.container, FirstSampleFragment(), FIRST_SAMPLE_FRAGMENT_TAG)
                 .commit()
         }
+        viewModel.permissionsController.bind(lifecycle, supportFragmentManager)
+        viewModel.locationTracker.bind(lifecycle, this, supportFragmentManager)
     }
 
     override fun showTextFields() {

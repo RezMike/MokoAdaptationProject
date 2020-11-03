@@ -35,12 +35,14 @@ object Deps {
     private const val mokoPagingVersion = "0.4.0"
     private const val mokoPermissionsVersion = "0.6.0"
     private const val mokoMediaVersion = "0.5.0"
+    private const val mokoGeoVersion = "0.3.0"
     private const val mokoFieldsVersion = "0.5.0"
 
     private const val multiplatformSettingsVersion = "0.6.1"
     private const val napierVersion = "1.4.1"
 
     private const val googleServicesVersion = "4.3.4"
+    private const val googleServicesLocationVersion = "17.0.0"
     private const val firebaseCrashlyticsPluginVersion = "2.3.0"
     private const val firebaseAnalyticsVersion = "18.0.0"
     private const val firebaseCrashlyticsVersion = "17.2.2"
@@ -123,6 +125,8 @@ object Deps {
                 "com.google.firebase:firebase-crashlytics:$firebaseCrashlyticsVersion"
             const val multidex =
                 "androidx.multidex:multidex:$multidexVersion"
+            const val googleServicesLocation =
+                "com.google.android.gms:play-services-location:$googleServicesLocationVersion"
 
             object Tests {
                 const val espressoCore =
@@ -172,6 +176,8 @@ object Deps {
                 "dev.icerock.moko:permissions:$mokoPermissionsVersion".mpl
             val mokoMedia =
                 "dev.icerock.moko:media:$mokoMediaVersion".mpl
+            val mokoGeo =
+                "dev.icerock.moko:geo:$mokoGeoVersion".mpl
             val mokoUnits =
                 "dev.icerock.moko:units:$mokoUnitsVersion".mpl
             val mokoPaging =
